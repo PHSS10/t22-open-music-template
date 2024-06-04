@@ -1,0 +1,120 @@
+.section__album{
+    display: flex;
+    flex-direction: column;
+    max-width: 64rem;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap:2.5rem;
+    color: var(--gray--color2);
+}
+.section__album label{
+    margin-top: 2.5rem;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.container__album{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.album{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    background-color: var(--gray--color7);
+    border-radius: 4px;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    width: 19.25rem;
+    
+}
+.album:hover{
+    background-color: var(--gray--color6);
+}
+
+.album img{
+    width:100%;
+    height:18.125rem;
+    
+}
+
+
+.nomeMusica{
+    font-weight: 600;
+    font-size: 1.375rem;
+    margin: 0 1.25rem;
+}
+.autor{
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray--color2);
+    margin:0 1.25rem;
+}
+.preco{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gray--color2);
+    margin: 0 1.25rem;
+}
+.preco button{
+    border: transparent;
+    width: 5.438rem;
+    height: 2.5rem;
+    color: #fff;
+    background-color: var(--brand--color--secondary);
+    border-radius: 4px;
+    font-size: 16px;
+
+}
+
+.preco button:hover{
+    background-color: var(--brand--color--primary);
+    cursor: pointer;
+}
+
+.album__darkMode{
+    background-color: var(--gray--color2);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    border-radius: 4px;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    width: 19.25rem;
+}
+
+.preco__darkMode{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    margin: 0 1.25rem;
+}
+
+.autor__darkMode{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin:0 1.25rem;
+}
+
+@media (max-width:426px){
+    #generoMusical{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .album{
+      width: 100% ;
+    }
+}
