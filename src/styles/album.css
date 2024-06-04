@@ -63,12 +63,12 @@
 }
 .preco button{
     border: transparent;
-    width: 5.438rem;
     height: 2.5rem;
     color: #fff;
     background-color: var(--brand--color--secondary);
     border-radius: 4px;
     font-size: 16px;
+    text-align: center;
 
 }
 
@@ -117,4 +117,6 @@
     .album{
       width: 100% ;
     }
+
+    
 }
