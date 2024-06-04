@@ -3,30 +3,127 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/styles/index.css">
+    <script type="module" src="./src/scripts/index.js" defer></script>
     <title>Open Music</title>
   </head>
-  <body>
+  <body class="conteudo">
     <!-- CABEÇALHO -->
-    <header>
-      <!-- DESENVOLVA AQUI OS ELEMENTOS DO CABEÇALHO -->
+    <header class="cabecalho">
+        <h1><span class="letraDiferente">o</span>pen <span class = "letraDiferente">m</span>usic</h1>
+        <button class="buttonDark"><img class="img__buttonDark" src="./src/assets/icons/dark.png" alt="dark"></button>
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main>
       <!-- SEÇÃO DE FILTRO POR GENERO -->
-      <section>
-        <!-- DESENVOLVA AQUI OS ELEMENTOS DA SEÇÃO -->
+      <section class="container__genero">
+        <label>Gênero Musical</label>
+        <ul id="generoMusical">
+          <li class="generos">Todos</li>
+          <li class="generos">Pop</li>
+          <li class="generos">MPB</li>
+          <li class="generos">Forró</li>
+          <li class="generos">Samba</li>
+          <li class="generos">Baião</li>
+          <li class="generos">Hip-Hop</li>
+        </ul>
+        </section>
+        
+        <!-- SEÇÃO DE FILTRO POR PREÇO -->
+        <section class="container__definirPreco">
+          <div class="titleDefinirPreco">
+            <label>Definir Preço</label>
+            <p>Até <span class="colorNumber">R$ <span class="rangeValue">150</span></span></p>
+          </div>
+          <input type="range" name="DefinirPreço" id="rangePreco" min="0" max="150" value ="150">   
+        </div>
+          
       </section>
-
-      <!-- SEÇÃO DE FILTRO POR PREÇO -->
-      <section>
-        <!-- DESENVOLVA AQUI OS ELEMENTOS DA SEÇÃO -->
-      </section>
-
+      
+      
       <!-- SEÇÃO DE ALBUNS -->
-      <section>
-        <!-- DESENVOLVA AQUI OS ELEMENTOS DA SEÇÃO -->
+      <section class="section__album">
+        <label>Album encontrados</label>
+        <div class="container__album">
+          <div class="album">
+            <img src="./src/assets/imgs/Baianos.jpg" alt="Banner">
+            <h4 class="nomeMusica">Acabou o chorare</h4>
+            <div class="autor">
+              <p>Novos Baianos</p>
+              <p>MPB</p>
+            </div>
+            <div class="preco">
+              <h3>137,91</h3>
+              <button>Comprar</button>
+            </div>
+          </div>
+          <div class="album">
+            <img src="./src/assets/imgs/Pink.jpg" alt="Banner">
+            <h4 class="nomeMusica">The Wall</h4>
+            <div class="autor">
+              <p>Pink Floyd</p>
+              <p>Rock</p>
+            </div>
+            <div class="preco">
+              <h3>123,56</h3>
+              <button>Comprar</button>
+            </div>
+          </div>  
+          <div class="album">
+            <img src="./src/assets/imgs/Lamar.jpg" alt="Banner">
+            <h4 class="nomeMusica">To Pimp a Butterfly</h4>
+            <div class="autor">
+              <p>Kendrick Lamar</p>
+              <p>Rap</p>
+            </div>
+            <div class="preco">
+              <h3>102,66</h3>
+              <button>Comprar</button>
+            </div>
+          </div>  
+          <div class="album">
+            <img src="./src/assets/imgs/Pink.jpg" alt="Banner">
+            <h4 class="nomeMusica">The Wall</h4>
+            <div class="autor">
+              <p>Pink Floyd</p>
+              <p>Rock</p>
+            </div>
+            <div class="preco">
+              <h3>123,56</h3>
+              <button>Comprar</button>
+            </div>
+          </div>  
+          <div class="album">
+            <img src="./src/assets/imgs/Baianos.jpg" alt="Banner">
+            <h4 class="nomeMusica">Acabou o Chorare</h4>
+            <div class="autor">
+              <p>Novos Baianos</p>
+              <p>MPB</p>
+            </div>
+            <div class="preco">
+              <h3>137,91</h3>
+              <button>Comprar</button>
+            </div>
+          </div>  
+          <div class="album">
+            <img src="./src/assets/imgs/Lamar.jpg" alt="Banner">
+            <h4 class="nomeMusica">To Pimp a Butterfly </h4>
+            <div class="autor">
+              <p>Kendrick Lamar</p>
+              <p>Rap</p>
+            </div>
+            <div class="preco">
+              <h3>102,66</h3>
+              <button>Comprar</button>
+            </div>
+          </div>  
+        </div>
+    
+        
+
       </section>
     </main>
   </body>
 </html>
+
