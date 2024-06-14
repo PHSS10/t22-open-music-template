@@ -1,18 +1,16 @@
+// index.js
+
+import { fetchAlbums } from './api.js';
 import { applyInputRangeStyle } from "./inputRange.js";
-import { albumList } from "./albumDatabase.js";
 
+let allAlbums = []; // Armazena todos os álbuns recebidos da API
+let filteredAlbums = []; // Armazena os álbuns filtrados
 
-function chamandoFuncao() {
-    applyInputRangeStyle();
-}
-
-chamandoFuncao();
-
-function albumDinamico(albumList) {
+const renderAlbums = (albums) => {
     const containerAlbum = document.querySelector(".container__album");
-    containerAlbum.innerHTML = ''; 
+    containerAlbum.innerHTML = '';
 
-    albumList.forEach((Element) => {
+    albums.forEach((Element) => {
         const album = document.createElement("div");
         const img = document.createElement("img");
         const h4 = document.createElement("h4");
@@ -40,38 +38,83 @@ function albumDinamico(albumList) {
         h4.innerText = Element.title;
         pGenero.innerText = Element.genre;
         pAutor.innerText = Element.band;
-        h3.innerText = `R$ ${Element.price.replace(".",",")}`
+        h3.innerText = `R$ ${Element.price.replace(".", ",")}`;
         button.innerText = "Comprar";
-        img.innerText = img.setAttribute("src", Element.img);
-        
+        img.setAttribute("src", Element.img);
+
         containerAlbum.appendChild(album);
     });
-
 }
 
-albumDinamico(albumList);
+async function displayAlbums() {
+    allAlbums = await fetchAlbums();
+    filteredAlbums = allAlbums;
+    if (allAlbums.length > 0) {
+        console.log('Álbuns recebidos com sucesso:', allAlbums);
+        renderAlbums(filteredAlbums);
+    } else {
+        console.log('Nenhum álbum encontrado.');
+    }
+}
+
+function filterAlbums() {
+    const selectedGenre = document.querySelector(".generoEscolhido")?.innerText || '';
+    const maxPrice = parseFloat(document.getElementById("rangePreco").value);
+
+    if (selectedGenre === 'Todos' || !selectedGenre) {
+        filteredAlbums = allAlbums.filter(album => parseFloat(album.price) <= maxPrice);
+    } else {
+        filteredAlbums = allAlbums.filter(album => {
+            const genreMatch = album.genre === selectedGenre;
+            const priceMatch = parseFloat(album.price) <= maxPrice;
+            return genreMatch && priceMatch;
+        });
+    }
+
+    renderAlbums(filteredAlbums);
+}
 
 function addGeneros() {
     const generos = document.querySelectorAll(".generos");
-    
-    generos.forEach(function(genero) {
-        genero.addEventListener("click", function() {
-            generos.forEach(function(g) {
+
+    generos.forEach(function (genero) {
+        genero.addEventListener("click", function () {
+            generos.forEach(function (g) {
                 g.classList.remove("generoEscolhido");
             });
-            
+
             this.classList.add("generoEscolhido");
+            filterAlbums(); // Filtrar álbuns após selecionar o gênero
         });
     });
 }
-addGeneros()
 
+function filterInputRange() {
+    const rangeInput = document.getElementById("rangePreco");
+    const rangeValue = document.querySelector(".rangeValue");
+
+    rangeInput.addEventListener("input", () => {
+        rangeValue.textContent = rangeInput.value;
+        filterAlbums(); // Filtrar álbuns após ajustar o preço
+    });
+}
+
+function chamandoFuncao() {
+    applyInputRangeStyle();
+    displayAlbums();
+    addGeneros();
+    filterInputRange();
+}
+
+chamandoFuncao();
+
+// Restante do código para funções de tema e outros
 function choiseTheme() {
     const buttonDark = document.querySelector(".buttonDark");
     const generos = document.querySelectorAll(".generos");
     const imgButtonDark = document.querySelector(".img__buttonDark");
-    
-    buttonDark.addEventListener("click", function() {
+
+    buttonDark.addEventListener("click", function () {
         const albums = document.querySelectorAll(".album");
         if (imgButtonDark.src.includes("light.png")) {
             imgButtonDark.src = "./src/assets/icons/dark.png";
@@ -82,7 +125,7 @@ function choiseTheme() {
             generos.forEach((element) => {
                 element.style.backgroundColor = "#F1F3F5";
             });
-    
+
             albums.forEach((element) => {
                 element.style.backgroundColor = "#F8F9FA";
             });
@@ -103,8 +146,9 @@ function choiseTheme() {
         }
     });
 }
+
 function savedTheme() {
-    choiseTheme()
+    choiseTheme();
     const theme = localStorage.getItem("@openMusic:theme");
     const imgButtonDark = document.querySelector(".img__buttonDark");
     const generos = document.querySelectorAll(".generos");
@@ -138,16 +182,6 @@ function savedTheme() {
         });
     }
 }
-savedTheme()
+savedTheme();
 
-function inputRange() {
-    const rangeInput = document.getElementById("rangePreco");
-    const rangeValue = document.querySelector(".rangeValue");
-
-    rangeInput.addEventListener("input", () => {
-        rangeValue.textContent = rangeInput.value;
-    });
-}
-inputRange()
-
-
+filterInputRange();
