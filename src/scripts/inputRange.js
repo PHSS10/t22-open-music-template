@@ -8,3 +8,5 @@ export function applyInputRangeStyle() {
       inputRange.style.background = `linear-gradient(to right,#6F00FF ${runnableTrackProgress}%, #DEE2E6 ${runnableTrackProgress}%)`;
     });
   }
+
+  
