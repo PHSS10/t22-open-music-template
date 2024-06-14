@@ -1,14 +1,15 @@
-// index.js
-
 import { fetchAlbums } from './api.js';
 import { applyInputRangeStyle } from "./inputRange.js";
 
-let allAlbums = []; // Armazena todos os álbuns recebidos da API
-let filteredAlbums = []; // Armazena os álbuns filtrados
+let allAlbums = [];
+let filteredAlbums = [];
 
 const renderAlbums = (albums) => {
     const containerAlbum = document.querySelector(".container__album");
     containerAlbum.innerHTML = '';
+
+    const theme = localStorage.getItem("@openMusic:theme") || 'light';
+    const albumBackgroundColor = theme === 'light' ? "#F8F9FA" : "rgb(33, 37, 41)";
 
     albums.forEach((Element) => {
         const album = document.createElement("div");
@@ -41,6 +42,8 @@ const renderAlbums = (albums) => {
         h3.innerText = `R$ ${Element.price.replace(".", ",")}`;
         button.innerText = "Comprar";
         img.setAttribute("src", Element.img);
+
+        album.style.backgroundColor = albumBackgroundColor;
 
         containerAlbum.appendChild(album);
     });
@@ -84,7 +87,7 @@ function addGeneros() {
             });
 
             this.classList.add("generoEscolhido");
-            filterAlbums(); // Filtrar álbuns após selecionar o gênero
+            filterAlbums();
         });
     });
 }
@@ -95,7 +98,7 @@ function filterInputRange() {
 
     rangeInput.addEventListener("input", () => {
         rangeValue.textContent = rangeInput.value;
-        filterAlbums(); // Filtrar álbuns após ajustar o preço
+        filterAlbums();
     });
 }
 
@@ -108,7 +111,6 @@ function chamandoFuncao() {
 
 chamandoFuncao();
 
-// Restante do código para funções de tema e outros
 function choiseTheme() {
     const buttonDark = document.querySelector(".buttonDark");
     const generos = document.querySelectorAll(".generos");
@@ -140,7 +142,7 @@ function choiseTheme() {
                 element.style.backgroundColor = "#212529";
             });
             albums.forEach((element) => {
-                element.style.backgroundColor = "#212529";
+                element.style.backgroundColor = "rgb(33, 37, 41)";
             });
             localStorage.setItem("@openMusic:theme", "dark");
         }
@@ -154,6 +156,8 @@ function savedTheme() {
     const generos = document.querySelectorAll(".generos");
     const buttonDark = document.querySelector(".buttonDark");
 
+    let albumBackgroundColor;
+
     if (theme === "light") {
         imgButtonDark.src = "./src/assets/icons/dark.png";
         let root = document.documentElement;
@@ -163,10 +167,7 @@ function savedTheme() {
         generos.forEach((element) => {
             element.style.backgroundColor = "#F1F3F5";
         });
-        const albums = document.querySelectorAll(".album");
-        albums.forEach((element) => {
-            element.style.backgroundColor = "#F8F9FA";
-        });
+        albumBackgroundColor = "#F8F9FA";
     } else {
         imgButtonDark.src = "./src/assets/icons/light.png";
         let root = document.documentElement;
@@ -176,11 +177,13 @@ function savedTheme() {
         generos.forEach((element) => {
             element.style.backgroundColor = "#212529";
         });
-        const albums = document.querySelectorAll(".album");
-        albums.forEach((element) => {
-            element.style.backgroundColor = "#212529";
-        });
+        albumBackgroundColor = "rgb(33, 37, 41)";
     }
+
+    const albums = document.querySelectorAll(".album");
+    albums.forEach((element) => {
+        element.style.backgroundColor = albumBackgroundColor;
+    });
 }
 savedTheme();
 
