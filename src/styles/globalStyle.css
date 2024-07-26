@@ -3,17 +3,21 @@
 
 
 :root{
-    --brand--color--primary:#6F00FF;
-    --brand--color--secondary:#8629FF;
+    --brand--color--primary:#2c3e50;
+    --brand--color--secondary:#2c3e50;
 
     --gray--color1:#15171A;
     --gray--color2:#212529;
     --gray--color3:#2B2F33;
-    --gray--color4:#CED4DA;
+    --gray--color4:#9E9E9E;
     --gray--color5:#CED4DA;
     --gray--color6:#F1F3F5;
-    --gray--color7:#F8F9FA;
+    --gray--color7:#ecf0f1;
     --gray--color8:#FDFEFF;
+
+
+    --album-hover-bg-dark: #212529;
+    --album-hover-bg: #EAEAEA; /* Cor de fundo do hover no modo claro */
 }
 
 .conteudo{
@@ -23,7 +27,7 @@
     align-items: center;
     width: 100%;
     height: 100vh;
-    background-color: var(--gray--color8);
+    background-color: var(--gray--color7);
     
 }
 
@@ -37,14 +41,54 @@ main{
     margin: 40px;
 }
 
-.conteudo__darkMode{
-    font-family: "Inter",sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    background-color: #15171A;
-    color: white;
-}
 
+.message-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--gray--color4);
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .message-box.show {
+    display: flex;
+    animation: fadeInOut 3s forwards;
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    90% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+  
+  .message-box img.imgProduto {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .message-box img.imgCorEscolhida {
+    width: 20px;
+    height: 20px;
+  }
+  
