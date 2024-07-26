@@ -1,93 +1,227 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./src/styles/index.css">
-  <script type="module" src="./src/scripts/index.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TG iPhone</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="./script.js" defer></script>
 </head>
-<body class="conteudo">
-  <!-- CABEÇALHO -->
-  <header class="cabecalho">
-  <div class="cabecalho__navegacao">
-    <h1><span class="letraDiferente">TG</span> iPhone</h1>
-    <ul class="navegacao">
-      <li class="link"><a href="https://phss10.github.io/m2-site-institucional-generico/">Home</a></li>
-      <li class="link"><a href="#" id="scrollToProdutos">Produtos</a></li>
-      <li class="link"><a href="#" id="scrollToFooter">Contato</a></li>
-      <button class="abrirCarrinho">
-        <img class="img__buttonCarrinho" src="./src/assets/icons/icons8-carrinho-48.png" alt="dark">
-      </button>
-    </ul>
-    <button class="menu__button">
-       <img class="img__buttonMenu" src="./src/assets/icons/menu (2).png" alt="menu">
-    </button>
-  </div>  
-  </header>
-  
-  <!-- CONTEÚDO PRINCIPAL -->
-  <main>
-    <!-- SEÇÃO DE FILTRO POR GENERO -->
-    <section class="container__genero">
-      <label>iPhones</label>
-      <ul id="generoMusical">
-        <li class="generos generoEscolhido">Todos</li>
-        <li class="generos">12 PRO MAX</li>
-        <li class="generos">13</li>
-        <li class="generos">15</li>
-        <li class="generos">15 PRO</li>
-        <li class="generos">15 PRO MAX</li>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <h1><span class="nomeDiferente">TG</span> iPhone</h1>
+      </div>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#">iPhones</a></li>
+          <li><a href="#">Acessórios</a></li>
+          <li><a href="#">Ofertas</a></li>
+          <li><a href="#" id="contact-link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="user-cart">
+        <button class="buttonCadastro" onclick="openModal('loginModal')">Entre ou Cadastra-se</button>
+        <a href="#"><img src="assets/icons/icons8-carrinho-48.png" class="icon-cart"></a>
+        <button class="button__hamburguer">
+          <img class="hamburguer" src="assets/icons/menu (2).png"  alt="Menu">
+        </button>
+      </div>
+    </header>
+
+    <section class="banner">
+      <img src="https://www.apple.com/v/iphone-15-pro/c/images/meta/iphone-15-pro_overview__f8jz7aagka2q_og.png?202407020502" alt="Promoção">
+      <div class="banner-text">
+        <h1>Promoção de iPhones</h1>
+        <p>Aproveite as melhores ofertas!</p>
+        <a href="#" class="cta-button">Comprar Agora</a>
+      </div>
+    </section>
+
+    <main class="product-list">
+      <section class="featured-products">
+        <h2>Produtos em Ofertas</h2>
+        <div class="product-grid" id="product-grid">
+          <!-- Produtos serão inseridos aqui -->
+        </div>
+      </section>
+    </main>
+
+    <section class="aboutUs">
+      <h2>Quem somos nós</h2>
+      <p>
+        Bem-vindo à TG iPhone! Somos uma empresa dedicada a oferecer a melhor
+        experiência de compra de iPhones e acessórios, com foco em confiabilidade,
+        praticidade e valor ao cliente. Nossa missão é proporcionar produtos de
+        alta qualidade, com um serviço excepcional que coloca o cliente em primeiro
+        lugar.
+      </p>
+      <button class="ver-mais-button">Ver Mais</button>
+    </section>
+
+    <section class="container__vantagens">
+      <h3>Veja as vantagens de comprar na TG</h3>
+      <ul class="listVantagens">
+        <li class="vantagens">
+          <img src="./assets/imgs/seguranca.png" alt="Segurança">
+          <p>Garantia de produtos originais</p>
+        </li>
+        <li class="vantagens">
+          <img src="./assets/imgs/icons8-cartão-64.png" alt="Cartão">
+          <p>Parcelamento personalizado</p>
+        </li>
+        <li class="vantagens">
+          <img src="./assets/imgs/icons8-assistente-64.png" alt="Assistente">
+          <p>Atendimento Humanizado</p>
+        </li>
+        <li class="vantagens">
+          <img src="./assets/imgs/icons8-em-trânsito-64.png" alt="Caminhão">
+          <p>Entrega Rápida</p>
+        </li>
       </ul>
     </section>
-    
-    <!-- SEÇÃO DE FILTRO POR PREÇO -->
-    <section class="container__definirPreco">
-      <div class="titleDefinirPreco">
-        <label>Definir Preço</label>
-        <p>Até <span class="colorNumber">R$ <span class="rangeValue">10.000</span></span></p>
-      </div>
-      <input type="range" name="DefinirPreço" id="rangePreco" min="0" max="10000" value="10000">
-    </section>
-    
-    <!-- SEÇÃO DE CELULARES -->
-    <section class="section__album">
-      <label>Produtos</label>
-      <div class="container__celulares"></div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="empresa">
-        <h3>Dados da Empresa</h3>
-        <p>Razão Social: Sua Empresa LTDA</p>
-        <p>CNPJ: 00.000.000/0001-00</p>
-        <p>Endereço: Rua Exemplo, 1234 - Cidade - Estado</p>
+    <section id="container__comments">
+      <div id="comments__students">
+        <!-- RIGHT SIDE -->
+        <div id="container__students__information">
+          <form id="students__information">
+            <h2>Faça o seu comentário</h2>
+            <label>Nome</label>
+            <input type="text" placeholder="Nome">
+            <label>Sobrenome</label>
+            <input type="text" placeholder="Sobrenome">
+            <label>Comentário</label>
+            <input type="text" placeholder="Digite aqui...">
+            <button type="submit">Enviar comentário</button>
+          </form>
+        </div>
+        <!-- LEFT SIDE -->
+        <ul id="container__about__students">
+          <!-- Comment 1 -->
+          <li class="about__students">
+            <div class="name__students">
+              <h3>Júlia Lima</h3>
+            </div>
+            <p>
+              It is a long established fact that a reader will be distracted
+              by the readable content of a page when looking at its layout.
+              The point of using Lorem Ipsum is that it has a more-or-less
+              normal distribution of letters, as opposed to using 👋🏿
+            </p>
+          </li>
+          <!-- Comment 2 -->
+          <li class="about__students">
+            <div class="name__students">
+              <h3>Carlos Ino</h3>
+            </div>
+            <p>
+              It is a 🎨 established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to using
+            </p>
+          </li>
+          <!-- Comment 3 -->
+          <li class="about__students">
+            <div class="name__students">
+              <h3>Camila Dias</h3>
+            </div>
+            <p>
+              It is a long established fact that a reader will be distracted
+              by the readable content of a page when looking at its layout.
+              The point of using Lorem Ipsum is that it has a more-or-less
+              normal distribution of letters, as opposed to using ❤️ ❤️ ❤️
+            </p>
+          </li>
+          <!-- Comment 4 -->
+          <li class="about__students">
+            <div class="name__students">
+              <h3>João Vaz</h3>
+            </div>
+            <p>
+              It is a long established fact that a reader will be distracted
+              by the readable content of a page when looking at its layout.
+              The point of using Lorem Ipsum is that it has a more-or-less
+              normal distribution of letters, as opposed to using 🕓 🕓 🕓️
+            </p>
+          </li>
+          <!-- Comment 5 -->
+          <li class="about__students">
+            <div class="name__students">
+              <h3>Gio Oliveira</h3>
+            </div>
+            <p>
+              It is a long established fact that a reader will be distracted
+              by the readable content of a page when looking at its layout.
+              The point of using Lorem Ipsum is that it has a more-or-less
+              normal distribution of letters, as opposed to using 👏 👏 👏️
+            </p>
+          </li>
+        </ul>
       </div>
-      <div class="contato">
-        <h3>Contato</h3>
-        <p>Telefone: (00) 1234-5678</p>
-        <p>Email: contato@suaempresa.com.br</p>
+    </section>
+  </div>
+
+  <!-- Div para exibir as informações de contato -->
+  <div id="contact-info" style="display: none;">
+    <p>Email: contato@tgiphone.com</p>
+    <p>Telefone: (11) 1234-5678</p>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>Sobre Nós</h3>
+        <p>Bem-vindo à TG iPhone! Somos uma empresa dedicada a oferecer a melhor experiência de compra de iPhones e acessórios, com foco em confiabilidade, praticidade e valor ao cliente.</p>
       </div>
+      <div class="footer-links">
+        <h3>Suporte</h3>
+        <ul>
+          <li>
+            <a href="#" id="footer-contact-link">Contato</a>
+          </li>
+          <li><a href="./termoUso.html">Termos de Uso</a></li>
+          <li><a href="./Privacidade.html">Política de Privacidade</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h3>Redes Sociais</h3>
+        <a href="https://www.instagram.com/tg__iphone?igsh=Yjl4YnA3YzVlYm4w" target="_blank">
+          <img src="./assets/icons/icons8-instagram-48.png" alt="Instagram">
+        </a>
+        <a href="#">
+          <img src="./assets/icons/iconWhats.png" alt="WhatsApp">
+        </a>
+        <a href="#">
+          <img src="./assets/imgs/icons8-facebook-48.png" alt="Facebook">
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 TG iPhone. Todos os direitos reservados.</p>
     </div>
   </footer>
-  
-  
-  <!-- MODAL DE CARRINHO -->
-  <dialog id="modalCarrinho">
-    <div id="modal__cadastro">
-      <div id="container__headerModal">
-        <h3>Produtos</h3>
-        <button id="remover__modal"><img src="./src/assets/icons/ButtonClose.svg" alt="icon__close"></button>
-      </div>
-      <div class="carrinho__itens"></div>
-      <div class="carrinho__total">
-        <p>Total: <span id="totalPreco">R$ 0,00</span></p>
-      </div>
-      <button id="checkout">Finalizar Compra</button>
-    </div>
+
+  <!-- Modal de Login -->
+  <dialog id="loginModal" class="dialog-modal">
+    <form action="#" method="post" class="dialog-form">
+      <h2 class="dialog-title">Login</h2>
+      <label for="username" class="dialog-label">Usuário:</label>
+      <input type="text" id="username" name="username" class="dialog-input" required><br><br>
+      <label for="password" class="dialog-label">Senha:</label>
+      <input type="password" id="password" name="password" class="dialog-input" required><br><br>
+      <a href="#" class="forgot-password">Esqueceu a senha?</a><br><br>
+      <button type="submit" class="dialog-button">Entrar</button>
+      <button type="button" onclick="closeModal('loginModal')" class="dialog-button dialog-close-button">Fechar</button>
+    </form>
   </dialog>
 
 </body>
+
 </html>
