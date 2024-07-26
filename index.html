@@ -1,129 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/styles/index.css">
-    <script type="module" src="./src/scripts/index.js" defer></script>
-    <title>Open Music</title>
-  </head>
-  <body class="conteudo">
-    <!-- CABEÇALHO -->
-    <header class="cabecalho">
-        <h1><span class="letraDiferente">o</span>pen <span class = "letraDiferente">m</span>usic</h1>
-        <button class="buttonDark"><img class="img__buttonDark" src="./src/assets/icons/dark.png" alt="dark"></button>
-    </header>
-
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main>
-      <!-- SEÇÃO DE FILTRO POR GENERO -->
-      <section class="container__genero">
-        <label>Gênero Musical</label>
-        <ul id="generoMusical">
-          <li class="generos">Todos</li>
-          <li class="generos">Pop</li>
-          <li class="generos">MPB</li>
-          <li class="generos">Forró</li>
-          <li class="generos">Samba</li>
-          <li class="generos">Rock</li>
-          <li class="generos">Hip-Hop</li>
-        </ul>
-        </section>
-        
-        <!-- SEÇÃO DE FILTRO POR PREÇO -->
-        <section class="container__definirPreco">
-          <div class="titleDefinirPreco">
-            <label>Definir Preço</label>
-            <p>Até <span class="colorNumber">R$ <span class="rangeValue">150</span></span></p>
-          </div>
-          <input type="range" name="DefinirPreço" id="rangePreco" min="0" max="150" value ="150">   
-        </div>
-          
-      </section>
-      
-      
-      <!-- SEÇÃO DE ALBUNS -->
-      <section class="section__album">
-        <label>Album encontrados</label>
-        <div class="container__album">
-          <div class="album">
-            <img src="./src/assets/imgs/Baianos.jpg" alt="Banner">
-            <h4 class="nomeMusica">Acabou o chorare</h4>
-            <div class="autor">
-              <p>Novos Baianos</p>
-              <p>MPB</p>
-            </div>
-            <div class="preco">
-              <h3>137,91</h3>
-              <button>Comprar</button>
-            </div>
-          </div>
-          <div class="album">
-            <img src="./src/assets/imgs/Pink.jpg" alt="Banner">
-            <h4 class="nomeMusica">The Wall</h4>
-            <div class="autor">
-              <p>Pink Floyd</p>
-              <p>Rock</p>
-            </div>
-            <div class="preco">
-              <h3>123,56</h3>
-              <button>Comprar</button>
-            </div>
-          </div>  
-          <div class="album">
-            <img src="./src/assets/imgs/Lamar.jpg" alt="Banner">
-            <h4 class="nomeMusica">To Pimp a Butterfly</h4>
-            <div class="autor">
-              <p>Kendrick Lamar</p>
-              <p>Rap</p>
-            </div>
-            <div class="preco">
-              <h3>102,66</h3>
-              <button>Comprar</button>
-            </div>
-          </div>  
-          <div class="album">
-            <img src="./src/assets/imgs/Pink.jpg" alt="Banner">
-            <h4 class="nomeMusica">The Wall</h4>
-            <div class="autor">
-              <p>Pink Floyd</p>
-              <p>Rock</p>
-            </div>
-            <div class="preco">
-              <h3>123,56</h3>
-              <button>Comprar</button>
-            </div>
-          </div>  
-          <div class="album">
-            <img src="./src/assets/imgs/Baianos.jpg" alt="Banner">
-            <h4 class="nomeMusica">Acabou o Chorare</h4>
-            <div class="autor">
-              <p>Novos Baianos</p>
-              <p>MPB</p>
-            </div>
-            <div class="preco">
-              <h3>137,91</h3>
-              <button>Comprar</button>
-            </div>
-          </div>  
-          <div class="album">
-            <img src="./src/assets/imgs/Lamar.jpg" alt="Banner">
-            <h4 class="nomeMusica">To Pimp a Butterfly </h4>
-            <div class="autor">
-              <p>Kendrick Lamar</p>
-              <p>Rap</p>
-            </div>
-            <div class="preco">
-              <h3>102,66</h3>
-              <button>Comprar</button>
-            </div>
-          </div>  
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/styles/index.css">
+  <script type="module" src="./src/scripts/index.js" defer></script>
+  <title>TG iPhone</title>
+</head>
+<body class="conteudo">
+  <!-- CABEÇALHO -->
+  <header class="cabecalho">
+  <div class="cabecalho__navegacao">
+    <h1><span class="letraDiferente">TG</span> iPhone</h1>
+    <ul class="navegacao">
+      <li class="link"><a href="https://phss10.github.io/m2-site-institucional-generico/">Home</a></li>
+      <li class="link"><a href="#" id="scrollToProdutos">Produtos</a></li>
+      <li class="link"><a href="#" id="scrollToFooter">Contato</a></li>
+      <button class="abrirCarrinho">
+        <img class="img__buttonCarrinho" src="./src/assets/icons/icons8-carrinho-48.png" alt="dark">
+      </button>
+    </ul>
+    <button class="menu__button">
+       <img class="img__buttonMenu" src="./src/assets/icons/menu (2).png" alt="menu">
+    </button>
+  </div>  
+  </header>
+  
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+    <!-- SEÇÃO DE FILTRO POR GENERO -->
+    <section class="container__genero">
+      <label>iPhones</label>
+      <ul id="generoMusical">
+        <li class="generos generoEscolhido">Todos</li>
+        <li class="generos">12 PRO MAX</li>
+        <li class="generos">13</li>
+        <li class="generos">15</li>
+        <li class="generos">15 PRO</li>
+        <li class="generos">15 PRO MAX</li>
+      </ul>
+    </section>
     
-        
+    <!-- SEÇÃO DE FILTRO POR PREÇO -->
+    <section class="container__definirPreco">
+      <div class="titleDefinirPreco">
+        <label>Definir Preço</label>
+        <p>Até <span class="colorNumber">R$ <span class="rangeValue">10.000</span></span></p>
+      </div>
+      <input type="range" name="DefinirPreço" id="rangePreco" min="0" max="10000" value="10000">
+    </section>
+    
+    <!-- SEÇÃO DE CELULARES -->
+    <section class="section__album">
+      <label>Produtos</label>
+      <div class="container__celulares"></div>
+    </section>
+  </main>
 
-      </section>
-    </main>
-  </body>
+  <footer class="footer">
+    <div class="container">
+      <div class="empresa">
+        <h3>Dados da Empresa</h3>
+        <p>Razão Social: Sua Empresa LTDA</p>
+        <p>CNPJ: 00.000.000/0001-00</p>
+        <p>Endereço: Rua Exemplo, 1234 - Cidade - Estado</p>
+      </div>
+      <div class="contato">
+        <h3>Contato</h3>
+        <p>Telefone: (00) 1234-5678</p>
+        <p>Email: contato@suaempresa.com.br</p>
+      </div>
+    </div>
+  </footer>
+  
+  
+  <!-- MODAL DE CARRINHO -->
+  <dialog id="modalCarrinho">
+    <div id="modal__cadastro">
+      <div id="container__headerModal">
+        <h3>Produtos</h3>
+        <button id="remover__modal"><img src="./src/assets/icons/ButtonClose.svg" alt="icon__close"></button>
+      </div>
+      <div class="carrinho__itens"></div>
+      <div class="carrinho__total">
+        <p>Total: <span id="totalPreco">R$ 0,00</span></p>
+      </div>
+      <button id="checkout">Finalizar Compra</button>
+    </div>
+  </dialog>
+
+</body>
 </html>
-
