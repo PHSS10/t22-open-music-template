@@ -1,190 +1,253 @@
-import { fetchAlbums } from './api.js';
-import { applyInputRangeStyle } from "./inputRange.js";
+const celularList = [
+  {
+    titulo: "12 PRO MAX 128GB",
+    cores: "Preto Branco",
+    coresImg: ["src/assets/imgs/icons8-emoji-de-círculo-preto-48.png", "src/assets/imgs/emoji branco.png"],
+    preco: "R$ 3.950",
+    pais: "./src/assets/imgs/eua.png",
+    img: "./src/assets/imgs/12 pro max.jpeg",
+  },
+  {
+    titulo: "13 128GB",
+    cores: "Rosa Branco Azul",
+    coresImg: ["src/assets/imgs/rosa.png", "src/assets/imgs/emoji branco.png", "src/assets/imgs/cor azul.png"],
+    preco: "R$ 3.650",
+    pais: "src/assets/icons/icons8-índia-emoji-48.png",
+    img: "./src/assets/imgs/13.jpeg",
+  },
+  {
+    titulo: "13 256GB",
+    cores: "Rosa",
+    coresImg: ["src/assets/imgs/rosa.png"],
+    preco: "R$ 4.300",
+    pais: "src/assets/icons/icons8-brasil-48.png",
+    img: "./src/assets/imgs/13 rosa.jpeg",
+  },
+  {
+    titulo: "15 128GB",
+    cores: "Rosa Preto",
+    coresImg: ["src/assets/imgs/icons8-emoji-de-círculo-preto-48.png", "src/assets/imgs/rosa.png"],
+    preco: "R$ 4.550",
+    pais: "src/assets/icons/icons8-emoji-chinês-48.png",
+    img: "./src/assets/imgs/iphone 15 black.jpeg",
+  },
+  {
+    titulo: "15 PRO 128GB",
+    cores: "Natural Branco Azul",
+    coresImg: ["src/assets/imgs/cor azul.png", "src/assets/imgs/emoji branco.png", "src/assets/imgs/natural.png"],
+    preco: "R$ 5.750",
+    pais: "./src/assets/imgs/eua.png",
+    img: "./src/assets/imgs/Iphone 15 PRO 128.jpeg",
+  },
+  {
+    titulo: "15 PRO 512GB",
+    cores: ["Preto", "Branco"],
+    coresImg: ["src/assets/imgs/icons8-emoji-de-círculo-preto-48.png", "src/assets/imgs/emoji branco.png"],
+    preco: "R$ 7.850",
+    pais: "./src/assets/imgs/eua.png",
+    img: "./src/assets/imgs/Iphone 15 PRO 512.jpeg",
+  },
+  {
+    titulo: "15 PRO MAX 256GB",
+    cores: "Preto Branco Natural Azul",
+    coresImg: ["src/assets/imgs/icons8-emoji-de-círculo-preto-48.png", "src/assets/imgs/emoji branco.png", "src/assets/imgs/natural.png", "src/assets/imgs/cor azul.png"],
+    preco: "R$ 6.500",
+    pais: "./src/assets/imgs/eua.png",
+    img: "./src/assets/imgs/12 pro max.jpeg",
+  },
+  {
+    titulo: "15 PRO MAX 256GB",
+    cores: "Preto Branco Natural Azul",
+    coresImg: ["src/assets/imgs/icons8-emoji-de-círculo-preto-48.png", "src/assets/imgs/emoji branco.png", "src/assets/imgs/natural.png", "src/assets/imgs/cor azul.png"],
+    preco: "R$ 7.200",
+    pais: "src/assets/icons/icons8-brasil-48.png",
+    img: "./src/assets/imgs/12 pro max.jpeg",
+  },
+  {
+    titulo: "15 PRO MAX 512GB",
+    cores: "Preto Branco Azul Natural",
+    coresImg: ["src/assets/imgs/icons8-emoji-de-círculo-preto-48.png", "src/assets/imgs/emoji branco.png", "src/assets/imgs/natural.png", "src/assets/imgs/cor azul.png"],
+    preco: "R$ 7.950",
+    pais: "src/assets/icons/icons8-brasil-48.png",
+    img: "./src/assets/imgs/Iphone 15 pro max 512.jpeg",
+  },
+  {
+    titulo: "15 PRO MAX 1TB",
+    cores: "Preto Azul",
+    coresImg: ["src/assets/imgs/icons8-emoji-de-círculo-preto-48.png", "src/assets/imgs/cor azul.png"],
+    preco: "R$ 9.050",
+    pais: "src/assets/icons/icons8-brasil-48.png",
+    img: "./src/assets/imgs/Iphone 15 pro max 1tb.jpeg",
+  },
+];
 
-let allAlbums = [];
-let filteredAlbums = [];
+document.addEventListener('DOMContentLoaded', () => {
+  const containerCelulares = document.querySelector(".container__celulares");
+  const rangeInput = document.getElementById("rangePreco");
+  const modalContainer = document.querySelector("dialog");
+  const buttonCadastrarHeader = document.querySelector(".abrirCarrinho");
+  const buttonRemoverModal = document.querySelector("#remover__modal");
+  const carrinhoItens = document.querySelector(".carrinho__itens");
+  const totalPrecoElement = document.getElementById("totalPreco");
+  const messageBox = document.createElement('div');
+  messageBox.classList.add('message-box');
+  document.body.appendChild(messageBox);
 
-const renderAlbums = (albums) => {
-    const containerAlbum = document.querySelector(".container__album");
-    containerAlbum.innerHTML = '';
+  let carrinho = [];
 
-    const theme = localStorage.getItem("@openMusic:theme") || 'light';
-    const albumBackgroundColor = theme === 'light' ? "#F8F9FA" : "rgb(33, 37, 41)";
+  const renderCelulares = (celulares) => {
+    containerCelulares.innerHTML = '';
 
-    albums.forEach((Element) => {
-        const album = document.createElement("div");
-        const img = document.createElement("img");
-        const h4 = document.createElement("h4");
-        const autor = document.createElement("div");
-        const pAutor = document.createElement("p");
-        const pGenero = document.createElement("p");
-        const preco = document.createElement("div");
-        const h3 = document.createElement("h3");
-        const button = document.createElement("button");
+    celulares.forEach((celular) => {
+      const celularElement = document.createElement("div");
+      celularElement.classList.add("celular");
 
-        album.appendChild(img);
-        album.appendChild(h4);
-        album.appendChild(autor);
-        album.appendChild(preco);
-        autor.appendChild(pAutor);
-        autor.appendChild(pGenero);
-        preco.appendChild(h3);
-        preco.appendChild(button);
+      const coresImgsHtml = celular.coresImg.map((img, index) => `<img src="${img}" alt="cor" class="corImg" data-index="${index}">`).join('');
 
-        album.classList.add("album");
-        h4.classList.add("nomeMusica");
-        autor.classList.add("autor");
-        preco.classList.add("preco");
+      const celularInfo = `
+        <div class="album">
+          <img class="banner" src="${celular.img}" alt="${celular.titulo}">
+          <h4 class="nomeCelular">${celular.titulo}</h4>
+          <div class="preco">
+            <p>${celular.preco}</p>
+            <button class="adicionarCarrinho">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      `;
 
-        h4.innerText = Element.title;
-        pGenero.innerText = Element.genre;
-        pAutor.innerText = Element.band;
-        h3.innerText = `R$ ${Element.price.replace(".", ",")}`;
-        button.innerText = "Comprar";
-        img.setAttribute("src", Element.img);
+      celularElement.innerHTML = celularInfo;
+      containerCelulares.appendChild(celularElement);
 
-        album.style.backgroundColor = albumBackgroundColor;
-
-        containerAlbum.appendChild(album);
-    });
-}
-
-async function displayAlbums() {
-    allAlbums = await fetchAlbums();
-    filteredAlbums = allAlbums;
-    if (allAlbums.length > 0) {
-        console.log('Álbuns recebidos com sucesso:', allAlbums);
-        renderAlbums(filteredAlbums);
-    } else {
-        console.log('Nenhum álbum encontrado.');
-    }
-}
-
-function filterAlbums() {
-    const selectedGenre = document.querySelector(".generoEscolhido")?.innerText || '';
-    const maxPrice = parseFloat(document.getElementById("rangePreco").value);
-
-    if (selectedGenre === 'Todos' || !selectedGenre) {
-        filteredAlbums = allAlbums.filter(album => parseFloat(album.price) <= maxPrice);
-    } else {
-        filteredAlbums = allAlbums.filter(album => {
-            const genreMatch = album.genre === selectedGenre;
-            const priceMatch = parseFloat(album.price) <= maxPrice;
-            return genreMatch && priceMatch;
+      const corImages = celularElement.querySelectorAll(".corImg");
+      let corEscolhida = celular.coresImg[0];
+      corImages.forEach(img => {
+        img.addEventListener("click", (event) => {
+          corEscolhida = celular.coresImg[event.target.dataset.index];
+          corImages.forEach(img => img.classList.remove("selected"));
+          event.target.classList.add("selected");
         });
-    }
+      });
 
-    renderAlbums(filteredAlbums);
-}
-
-function addGeneros() {
-    const generos = document.querySelectorAll(".generos");
-
-    generos.forEach(function (genero) {
-        genero.addEventListener("click", function () {
-            generos.forEach(function (g) {
-                g.classList.remove("generoEscolhido");
-            });
-
-            this.classList.add("generoEscolhido");
-            filterAlbums();
-        });
+      celularElement.querySelector(".adicionarCarrinho").addEventListener("click", () => {
+        adicionarAoCarrinho(celular, corEscolhida);
+        mostrarMensagemSucesso(celular, corEscolhida);
+      });
     });
-}
+  };
 
-function filterInputRange() {
-    const rangeInput = document.getElementById("rangePreco");
-    const rangeValue = document.querySelector(".rangeValue");
+  const filterCelulares = () => {
+    const selectedModelo = document.querySelector(".generoEscolhido")?.innerText || 'Todos';
+    const maxPrice = parseFloat(rangeInput.value);
 
-    rangeInput.addEventListener("input", () => {
-        rangeValue.textContent = rangeInput.value;
-        filterAlbums();
+    const celularesFiltrados = celularList.filter(celular => {
+      const modeloMatch = selectedModelo === 'Todos' || celular.titulo.includes(selectedModelo);
+      const precoMatch = parseFloat(celular.preco.replace("R$ ", "").replace(".", "").replace(",", ".")) <= maxPrice;
+      return modeloMatch && precoMatch;
     });
-}
 
-function chamandoFuncao() {
-    applyInputRangeStyle();
-    displayAlbums();
-    addGeneros();
-    filterInputRange();
-}
+    renderCelulares(celularesFiltrados);
+  };
 
-chamandoFuncao();
+  const adicionarAoCarrinho = (celular, corEscolhida) => {
+    const itemComCor = { ...celular, corEscolhida };
+    carrinho.push(itemComCor);
+    atualizarCarrinho();
+  };
 
-function choiseTheme() {
-    const buttonDark = document.querySelector(".buttonDark");
-    const generos = document.querySelectorAll(".generos");
-    const imgButtonDark = document.querySelector(".img__buttonDark");
+  const atualizarCarrinho = () => {
+    carrinhoItens.innerHTML = '';
+    let totalPreco = 0;
 
-    buttonDark.addEventListener("click", function () {
-        const albums = document.querySelectorAll(".album");
-        if (imgButtonDark.src.includes("light.png")) {
-            imgButtonDark.src = "./src/assets/icons/dark.png";
-            let root = document.documentElement;
-            root.style.setProperty("--gray--color8", "#FDFEFF");
-            root.style.setProperty("--gray--color2", "#212529");
-            buttonDark.style.backgroundColor = "#F1F3F5";
-            generos.forEach((element) => {
-                element.style.backgroundColor = "#F1F3F5";
-            });
+    carrinho.forEach((item, index) => {
+      const itemElement = document.createElement("div");
+      itemElement.classList.add("carrinho__item");
 
-            albums.forEach((element) => {
-                element.style.backgroundColor = "#F8F9FA";
-            });
-            localStorage.setItem("@openMusic:theme", "light");
-        } else {
-            imgButtonDark.src = "./src/assets/icons/light.png";
-            let root = document.documentElement;
-            root.style.setProperty("--gray--color8", "#15171A");
-            root.style.setProperty("--gray--color2", "#F1F3F5");
-            buttonDark.style.backgroundColor = "#212529";
-            generos.forEach((element) => {
-                element.style.backgroundColor = "#212529";
-            });
-            albums.forEach((element) => {
-                element.style.backgroundColor = "rgb(33, 37, 41)";
-            });
-            localStorage.setItem("@openMusic:theme", "dark");
-        }
+      itemElement.innerHTML = `
+      <div class= "dados__carrinho">
+        <p>${item.titulo} - Cor: <img src="${item.corEscolhida}" alt="cor" class="corImgPequena"></p>
+        <button class="remover-item" data-index="${index}"><img class= "lixeira" src ="src/assets/icons/lixeira.png" alt = "Fechar"></button>
+        </div>
+        <p>${item.preco}</p>
+      `;
+
+      carrinhoItens.appendChild(itemElement);
+
+      totalPreco += parseFloat(item.preco.replace("R$ ", "").replace(".", "").replace(",", "."));
     });
-}
 
-function savedTheme() {
-    choiseTheme();
-    const theme = localStorage.getItem("@openMusic:theme");
-    const imgButtonDark = document.querySelector(".img__buttonDark");
-    const generos = document.querySelectorAll(".generos");
-    const buttonDark = document.querySelector(".buttonDark");
+    totalPrecoElement.innerText = `R$ ${totalPreco.toFixed(2).replace(".", ",")}`;
 
-    let albumBackgroundColor;
-
-    if (theme === "light") {
-        imgButtonDark.src = "./src/assets/icons/dark.png";
-        let root = document.documentElement;
-        root.style.setProperty("--gray--color8", "#FDFEFF");
-        root.style.setProperty("--gray--color2", "#212529");
-        buttonDark.style.backgroundColor = "#F1F3F5";
-        generos.forEach((element) => {
-            element.style.backgroundColor = "#F1F3F5";
-        });
-        albumBackgroundColor = "#F8F9FA";
-    } else {
-        imgButtonDark.src = "./src/assets/icons/light.png";
-        let root = document.documentElement;
-        root.style.setProperty("--gray--color8", "#15171A");
-        root.style.setProperty("--gray--color2", "#FDFEFF");
-        buttonDark.style.backgroundColor = "#212529";
-        generos.forEach((element) => {
-            element.style.backgroundColor = "#212529";
-        });
-        albumBackgroundColor = "rgb(33, 37, 41)";
-    }
-
-    const albums = document.querySelectorAll(".album");
-    albums.forEach((element) => {
-        element.style.backgroundColor = albumBackgroundColor;
+    const botoesRemover = carrinhoItens.querySelectorAll(".remover-item");
+    botoesRemover.forEach(botao => {
+      botao.addEventListener("click", (event) => {
+        const index = event.target.dataset.index;
+        carrinho.splice(index, 1);
+        atualizarCarrinho();
+      });
     });
-}
-savedTheme();
+  };
 
-filterInputRange();
+  const mostrarMensagemSucesso = (celular) => {
+    messageBox.innerHTML = `
+      <img src="${celular.img}" alt="${celular.titulo}" class="imgProduto">
+      <p>${celular.titulo} adicionado ao carrinho com sucesso!</p>
+    `;
+    messageBox.classList.add('show');
+
+    setTimeout(() => {
+      messageBox.classList.remove('show');
+    }, 3000);
+  };
+
+  buttonCadastrarHeader.addEventListener("click", () => {
+    modalContainer.showModal();
+  });
+
+  buttonRemoverModal.addEventListener("click", () => {
+    modalContainer.close();
+  });
+
+  rangeInput.addEventListener("input", (event) => {
+    document.querySelector(".rangeValue").innerText = event.target.value;
+    filterCelulares();
+  });
+
+  document.querySelectorAll(".generos").forEach(genero => {
+    genero.addEventListener("click", () => {
+      document.querySelectorAll(".generos").forEach(g => g.classList.remove("generoEscolhido"));
+      genero.classList.add("generoEscolhido");
+      filterCelulares();
+    });
+  });
+
+  renderCelulares(celularList);
+});
+function escolhendoCor() {
+  const coresEscolhidas = document.querySelectorAll(".corImg");
+
+  coresEscolhidas.forEach(corEscolhida => {
+    corEscolhida.addEventListener("click", () => {
+      // Remove a classe 'escolhida' de todas as imagens
+      coresEscolhidas.forEach(img => img.classList.remove("escolhida"));
+      
+      // Adiciona a classe 'escolhida' apenas na imagem clicada
+      corEscolhida.classList.add("escolhida");
+    });
+  });
+}
+escolhendoCor()
+
+function scroolPag(){
+  document.getElementById('scrollToFooter').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('footer').scrollIntoView({ behavior: 'smooth' });
+  });
+  document.getElementById('scrollToProdutos').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+  });
+
+}
+
+scroolPag()
+
