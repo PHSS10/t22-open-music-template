@@ -1,0 +1,847 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #2c3e50;
+  color: white;
+}
+
+.logo {
+  color: white;
+  font-family: "Bebas Neue", sans-serif;
+  animation: fadeIn 1s ease-in-out;
+  font-size: 2.5rem;
+}
+
+.nomeDiferente {
+  color: #9E9E9E;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  animation: slideIn 1s ease-in-out;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #007BFF;
+}
+
+
+.user-cart {
+  display: flex;
+  align-items: center;
+  animation: slideIn 2s ease-in-out;
+}
+
+.user-cart img {
+  margin-left: 20px;
+  color: #333;
+  transition: color 0.3s;
+  width: 25px;
+}
+
+.user-cart a:hover {
+  color: #007BFF;
+}
+.button__hamburguer{
+  background-color: transparent;
+  border: none;
+}
+.hamburguer{
+  display: none;
+}
+
+.buttonCadastro {
+  background-color: transparent;
+  color: white;
+  border: 2px solid transparent;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  margin-left: 10px;
+}
+
+.buttonCadastro:hover {
+  border-color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Estilos para o modal de login */
+.dialog-modal {
+  width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.dialog-label {
+  margin-bottom: 5px;
+}
+
+.dialog-input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dialog-button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dialog-button:hover {
+  background-color: #0056b3;
+}
+
+.dialog-close-button {
+  background-color: #6c757d;
+}
+
+.dialog-close-button:hover {
+  background-color: #5a6268;
+}
+
+/* Estilo para o link "Esqueceu a senha?" */
+.forgot-password {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+/* Estilo para fechar o modal */
+.dialog-modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* Banner Principal */
+/* Estilo padrão para o banner */
+/* Banner Principal */
+/* Estilo padrão para o banner */
+.banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.banner:hover img {
+  transform: scale(1.05);
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  width: 70%;
+  max-width: 600px;
+  opacity: 0; /* Oculta o texto inicialmente */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.banner:hover .banner-text {
+  opacity: 1; /* Mostra o texto quando o mouse está sobre o banner */
+}
+
+.banner-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  transform: translateY(-10px);
+}
+
+.banner-text p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  transform: translateY(-10px);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s;
+  transform: translateY(-10px);
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Lista de Produtos */
+.featured-products h2{
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+
+}
+.product-list {
+  flex: 1;
+  padding: 20px;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.imgCelular {
+  width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+.product-item {
+  width: calc(25% - 20px);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.product-item:hover {
+  transform: translateY(-10px);
+}
+
+.product-price {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.price-phrase {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.promocao-price {
+  font-weight: bold;
+  color: #007BFF;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.product-item button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 15px;
+}
+
+.product-item button:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* AboutUS */
+
+.aboutUs {
+  background-color: #000000f0;
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza verticalmente o conteúdo */
+}
+
+.aboutUs h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+}
+
+.aboutUs p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  text-align: justify;
+}
+
+.aboutUs-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Espaço acima do rodapé */
+}
+
+.ver-mais-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.ver-mais-button:hover {
+  background-color: #0056b3;
+}
+
+/* Vantagens */
+.container__vantagens {
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra */
+}
+
+.container__vantagens h3 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+  color: #333;
+}
+
+.listVantagens {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.vantagens {
+  width: 200px;
+  text-align: center;
+}
+
+.vantagens img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.vantagens p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Lista de duvidas */
+#container__FAQ{
+  width: 100%;
+  height: 64rem;
+  
+}
+
+#FAQ__information{
+  width:100%;
+  
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+#container__frequently__questions{
+  max-width: 38.75rem ;
+  width: 100%;
+  max-height: 17.5rem; 
+  height: 100%;
+  padding: 3.75rem  0 2.5rem 0 ;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+  position: sticky;
+  top: 12.5rem;
+  
+}
+
+#frequently__questions{
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2.5rem;
+  
+}
+#frequently__questions h2{
+  width: 33.313rem;
+  
+  font-weight: 600;
+  font-size: clamp(1rem, -0.071rem + 2.857vw, 2.5rem)
+}
+
+#frequently__questions p{
+  text-align:justify;
+  color: var(--color-text);
+  
+  max-width:33.313rem;
+  width: 100%;
+  line-height: 25px;
+}
+
+#button__cadastrar{
+  width: 16.625rem;
+  height: 3.75rem;
+  
+  background-color: var(--backgroundcolor-button);
+  color: var(--color-title);
+  
+  text-align: center;
+  border: 1px solid var(--backgroundcolor-button);
+  cursor: pointer;
+}
+
+/* A parte do left side questions termina aqui */
+
+#container__list__doubts{
+  max-width: 36.438rem;
+  width: 100%;
+  height: 60.5rem;
+  
+  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  
+}
+
+.list__doubts{
+  width: 100%;
+  height: 7.5rem;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  
+  
+}
+
+.list__doubts h3{
+  font-size: clamp(1rem, 0.286rem + 1.905vw, 2rem);;
+  font-weight: 600;
+  text-align: center;
+  
+}
+
+.list__doubts p{
+  text-align:justify;
+  color: var(--color-text);
+  line-height: 25px;
+  
+}
+
+/* A parte do right side questions termina aqui */
+
+#container__comments{
+  width:100%;
+  height: 100%;
+  padding:82px 0 82px 0 ;
+}
+
+#comments__students{
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  
+  
+}
+
+#container__students__information {
+
+  position: sticky;
+  top: 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  width: 40%;
+}
+
+#students__information{
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+  text-align: justify;
+  padding: 5rem 3.25rem 5rem 3.25rem;
+  line-height: 25px;
+  background-color: #2c3e50;
+  color: #f8f9fa;
+  
+}
+
+#students__information h2 {
+  font-size:clamp(1rem, -0.071rem + 2.857vw, 2.5rem) ;
+  font-family: "Bebas Neue", sans-serif;
+  
+  font-weight: 600;
+  line-height: clamp(1rem, -1.143rem + 5.714vw, 4rem);
+  text-align: start;
+  
+}
+
+#students__information input{
+  height: 20px;
+  border-radius: 4px;
+  border: none;
+  padding: 10px;
+}
+
+#students__information button{
+  border: none;
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  border-radius: 4px;
+
+}
+
+
+#container__about__students{
+  display: flex;
+  flex-direction: column;
+  gap: 82px;
+  text-align: justify;
+  
+  max-width: 34.75rem;
+  width: 100%;
+  
+}
+
+.about__students{
+  display: flex;
+  justify-content: space-around;
+  color: var(--color-text);
+}
+
+.about__students p{
+  line-height: 25px;
+}
+
+.name__students{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+}
+
+.name__students h3 {
+color: var(--color-title);
+font-weight: 600;
+font-size: clamp(1rem, 0.286rem + 1.905vw, 2rem);
+margin-left: 10px;
+}
+
+
+/* Animação */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Rodapé */
+.site-footer {
+  background-color:#2c3e50;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-about,
+.footer-links,
+.footer-social {
+  flex: 1 1 200px;
+  margin: 20px;
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-social h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer-about p,
+.footer-links p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-social img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  margin: 0;
+}
+
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* Estilos para dispositivos menores (exemplo: tablets e smartphones) */
+@media(max-width:768px){
+
+  .logo h1{
+    width: 150px;
+  }
+  .hamburguer{
+    display: flex;
+  }
+  .nav-menu ul{
+    display: none;
+  }
+  .banner-text h1{
+    font-size: 2.1rem;
+  }
+  .banner-text p {
+    font-size: 1rem;
+  }
+  .cta-button {
+    padding: 7.5px 15px;
+    font-size: 14px;
+  }
+
+  .imgCelular{
+    width: 150px;
+  }
+  #container__comments{
+    padding: 10px 0 10px 0;
+  }
+
+  #comments__students {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #container__students__information {
+    position: static;
+    max-height: 100%;
+    width: 100%;
+  }
+  #container__about__students {
+    padding: 55px;
+  }
+}
+
+@media(max-width:720px){
+  .featured-products h2{
+  text-align: center;
+  }
+  .product-item {
+    width: auto;
+}
+.imgCelular {
+  width: 100px;
+}
+.nav-menu{
+  display: none;
+}
+#container__about__students {
+  padding: 20px;
+}
+.about__students {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 90%;
+}
+
+}
+
+@media(max-width:426px){
+
+  .buttonCadastro {
+    display: none;
+  }
+  .icon-cart {
+    display: none;
+  }
+  .container__vantagens h3 {
+    font-size: 2.1rem;
+  }
+  #students__information h2 {
+    font-size: 2.1rem;
+    line-height: 35px;
+  }
+  .vantagens img {
+    width: 40px;
+    height: 40px;
+  }
+  .vantagens p {
+    font-size: 10px;
+  }
+  #container__about__students {
+    padding: 0px;
+  }
+  .about__students{
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .aboutUs p {
+    font-size: 1rem;
+  }
+
+  .aboutUs h2{
+    font-size: 2.1rem;
+  }
+}
