@@ -1,42 +1,99 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .cabecalho{
-    max-width: 64rem;
-    width: 95%;
-    height: 9rem;
     
+    width: 100%;
+    background-color: var(--brand--color--primary);
+    position: sticky;
+    top: 0px;
+}
+
+.cabecalho__navegacao{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: 0 clamp(1rem, -0.071rem + 2.857vw, 2.5rem);
+   
     
-    border-bottom: 3px solid var(--brand--color--primary);
-    
-    font-size: 2.5rem;
-    font-weight: 600;
 
-    position:sticky ;
-    top:0;
-    z-index: 0;
-    background-color: var(--gray--color8);
-    
 }
 header h1{
-    margin: 40px 0;
-    color: var(--gray--color2);
+    margin: 30px 0px;
+    color: var(--gray--color8);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 50px;
+    width: 15.938rem;
+    
 }
 
-.buttonDark{
+.abrirCarrinho{
     border: transparent;
-    width: 2.75rem;
-    height: 2.25rem;
     border-radius: 0.313rem;
     cursor: pointer;
 }
 
-.buttonDark img{
+.img__buttonCarrinho{
     border: transparent;
+    width: 28px;
+}
+
+.img__buttonCarrinho:hover{
+    width: 30px;
 }
 
 .letraDiferente{
-    color: var(--brand--color--primary);
+    color: var(--gray--color4);
 }
 
+.navegacao{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+    font-weight: 600;
+}
 
+.link{
+    font-size: 16px;
+    background-color: var(--gray--color7);
+    padding: 8px;
+    border-radius: 4px;
+    
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+.link :hover{
+    font-size: 18px;
+}
+
+.menu__button{
+    display: none;
+}
+
+@media(max-width:426px ){
+    .navegacao{
+        display: none;
+    }
+
+    .menu__button{
+        display: flex;
+        background-color: transparent;
+        border: none;
+    }
+
+    .img__buttonMenu{
+        width: 30px;
+    }
+
+     header h1{
+        font-size: 30px;
+    }
+   
+}
