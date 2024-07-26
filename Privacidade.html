@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TG iPhone</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidade - TG iPhone</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="Privacidade.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <h1><span class="nomeDiferente">TG</span> iPhone</h1>
+    </div>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="#">iPhones</a></li>
+        <li><a href="#">Acessórios</a></li>
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="#" id="contact-link">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="user-cart">
+      <button class="buttonCadastro" onclick="openModal('loginModal')">Entre ou Cadastra-se</button>
+      <a href="#"><img src="assets/icons/icons8-carrinho-48.png" class="icon-cart"></a>
+      <button class="button__hamburguer">
+        <img class="hamburguer" src="assets/icons/menu (2).png"  alt="Menu">
+      </button>
+    </div>
+  </header>
+
+    <main>
+      <section class="policy-section">
+        <h2>Política de Privacidade</h2>
+        <p>A sua privacidade é importante para nós. É política da TG iPhone respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site TG iPhone, e outros sites que possuímos e operamos.</p>
+
+        <h3>1. Informações que coletamos</h3>
+        <p>Coletamos informações pessoais quando você se cadastra em nosso site, faz uma compra, se inscreve em nosso boletim informativo, responde a uma pesquisa ou preenche um formulário. As informações coletadas incluem seu nome, endereço de e-mail, endereço postal e número de telefone.</p>
+
+        <h3>2. Como usamos as informações</h3>
+        <p>Qualquer uma das informações que coletamos de você pode ser usada para:</p>
+        <ul>
+          <li>Personalizar sua experiência em nosso site</li>
+          <li>Melhorar nosso site</li>
+          <li>Melhorar o atendimento ao cliente</li>
+          <li>Processar transações</li>
+          <li>Administrar um concurso, promoção, pesquisa ou outro recurso do site</li>
+          <li>Enviar e-mails periódicos</li>
+        </ul>
+
+        <h3>3. Proteção das informações</h3>
+        <p>Implementamos uma variedade de medidas de segurança para manter a segurança de suas informações pessoais. Oferecemos o uso de um servidor seguro. Todas as informações confidenciais fornecidas são transmitidas via tecnologia Secure Socket Layer (SSL) e, em seguida, criptografadas em nosso banco de dados de Provedores de Pagamento apenas para serem acessíveis por aqueles autorizados com direitos especiais de acesso a tais sistemas, e são obrigados a manter as informações confidenciais.</p>
+
+        <h3>4. Cookies</h3>
+        <p>Usamos cookies para melhorar o acesso ao nosso site e identificar visitantes frequentes. Além disso, nossos cookies melhoram a experiência do usuário, rastreando e direcionando seus interesses. No entanto, o uso de cookies não está ligado a nenhuma informação pessoal identificável em nosso site.</p>
+
+        <h3>5. Compartilhamento de informações</h3>
+        <p>Não vendemos, trocamos ou transferimos para terceiros suas informações pessoais identificáveis. Isso não inclui terceiros de confiança que nos ajudam a operar nosso site ou conduzir nossos negócios, desde que concordem em manter essas informações confidenciais. Podemos divulgar suas informações quando acreditarmos que a liberação é apropriada para cumprir a lei, fazer cumprir as políticas do nosso site ou proteger nossos direitos, propriedade ou segurança.</p>
+
+        <h3>6. Consentimento</h3>
+        <p>Ao usar nosso site, você concorda com nossa política de privacidade.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-about">
+          <h3>Sobre Nós</h3>
+          <p>Bem-vindo à TG iPhone! Somos uma empresa dedicada a oferecer a melhor experiência de compra de iPhones e acessórios, com foco em confiabilidade, praticidade e valor ao cliente.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Suporte</h3>
+          <ul>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Redes Sociais</h3>
+          <a href="https://www.instagram.com/tg__iphone?igsh=Yjl4YnA3YzVlYm4w" target="_blank">
+            <img src="./assets/icons/icons8-instagram-48.png" alt="Instagram">
+          </a>
+          <a href="#">
+            <img src="./assets/icons/iconWhats.png" alt="WhatsApp">
+          </a>
+          <a href="#">
+            <img src="./assets/imgs/icons8-facebook-48.png" alt="Facebook">
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 TG iPhone. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- modal -->
+    <dialog id="loginModal" class="modal-overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Modal de Cadastro</h2>
+          <button class="close" onclick="closeModal()">Fechar</button>
+        </div>
+        <div class="modal-content">
+          <form action="">
+            <label for="username">Nome de usuário:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password">
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+
+</body>
+</html>
