@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* Adicione o conteúdo do seu arquivo reset.css aqui */
+
+/* styles.css */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Cabeçalho */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    color: white;
+  }
+  
+  .logo {
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    animation: fadeIn 1s ease-in-out;
+    font-size: 2.5rem;
+  }
+  
+  .nomeDiferente {
+    color: #9E9E9E;
+  }
+  
+  .nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    animation: slideIn 1s ease-in-out;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+  }
+  
+  .nav-menu a:hover {
+    color: #007BFF;
+  }
+  
+  
+  .user-cart {
+    display: flex;
+    align-items: center;
+    animation: slideIn 2s ease-in-out;
+  }
+  
+  .user-cart img {
+    margin-left: 20px;
+    color: #333;
+    transition: color 0.3s;
+    width: 25px;
+  }
+  
+  .user-cart a:hover {
+    color: #007BFF;
+  }
+  .button__hamburguer{
+    background-color: transparent;
+    border: none;
+  }
+  .hamburguer{
+    display: none;
+  }
+  
+  .buttonCadastro {
+    background-color: transparent;
+    color: white;
+    border: 2px solid transparent;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    margin-left: 10px;
+  }
+  
+  .buttonCadastro:hover {
+    border-color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Estilos para o modal de login */
+  .dialog-modal {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dialog-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dialog-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .dialog-label {
+    margin-bottom: 5px;
+  }
+  
+  .dialog-input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .dialog-button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .dialog-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .dialog-close-button {
+    background-color: #6c757d;
+  }
+  
+  .dialog-close-button:hover {
+    background-color: #5a6268;
+  }
+  
+  /* Estilo para o link "Esqueceu a senha?" */
+  .forgot-password {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+  /* Estilo para fechar o modal */
+  .dialog-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .policy-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
+  
+  .policy-section h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .policy-section p, .policy-section ul {
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .policy-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  
+  .site-footer {
+    background-color:#2c3e50;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-about,
+  .footer-links,
+  .footer-social {
+    flex: 1 1 200px;
+    margin: 20px;
+  }
+  
+  .footer-about h3,
+  .footer-links h3,
+  .footer-social h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-about p,
+  .footer-links p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-social a {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .footer-social img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+  }
+  
+  .footer-bottom p {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  @media(max-width:760px){
+    .logo h1{
+      width: 150px;
+    }
+    .hamburguer{
+      display: flex;
+    }
+    .nav-menu ul{
+      display: none;
+    }
+  }
+  @media(max-width:426px){
+
+    .buttonCadastro {
+      display: none;
+    }
+    .icon-cart {
+      display: none;
+    }
+  }
