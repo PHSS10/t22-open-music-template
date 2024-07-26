@@ -19,14 +19,12 @@
     flex-direction: row;
     justify-content: space-between;
     width: 80%;
-
-    
 }
 
 .generos{
     padding: 0.638rem 0.7rem 0.638rem 0.7rem;
     font-size: 1rem;
-    background-color: var(--gray--color6);
+    background-color: var(--gray--color8);
     height: 1.25rem;
     cursor: pointer;
     border-radius: 4px;
@@ -34,7 +32,7 @@
     
 }
 .generoEscolhido{
-    background-color:var(--gray--color2) !important ;
+    background-color:var(--brand--color--secondary) !important ;
     color: var(--gray--color8);
     font-size: 1rem;
     height: 1.25rem;
@@ -44,4 +42,11 @@
 .generos:hover{
     border: 2px solid var(--gray--color1);
     
+}
+
+@media(max-width:426px){
+    .container__genero label{
+        font-size: 1.25rem;
+        
+    } 
 }
